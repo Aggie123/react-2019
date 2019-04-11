@@ -1,0 +1,8 @@
+.container{
+	background-color: #fdd;
+}
+
+.box{
+	display: flex;
+	background-color: #f00;
+}
