@@ -3,5 +3,5 @@ module.exports = {
    	"@babel/preset-react", 
    	"@babel/preset-env"
   ],
-  plugins: []
+  plugins: ["@babel/plugin-syntax-dynamic-import"]
 }

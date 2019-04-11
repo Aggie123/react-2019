@@ -1,3 +1,8 @@
+##dependencies
+1. react-loadable 按需加载
+2. mini-css-extract-plugin 提取css文件
+
+
 ##建项步骤
 1. 初始化npm项目
 npm init -y

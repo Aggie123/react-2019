@@ -1,14 +1,25 @@
 const path = require('path');
+//html模板中自动插入打包生成的文件
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+//提取css文件
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const publicPath = path.join(__dirname, '../dist');
 
 module.exports ={
 	mode:'development',
-	entry: path.join(__dirname,'../src/index.js'),
+	entry: {
+		app: [
+			path.join(__dirname,'../src/index.js'),
+		],
+		//提取公共代码
+		vendor: ['react', 'react-dom', 'react-router-dom', /*'redux', 'react-redux'*/]
+	},
 	output: {
 		path: publicPath,
-		filename:'bundle.js'
+		filename:'[name].[hash].js',
+		//提取公共代码
+		chunkFilename: '[name].[chunkhash].chunk.js'
 	},
 	module: {
 		rules : [{
@@ -18,7 +29,8 @@ module.exports ={
 		},{
 			test: /\.css$/,
 			use: [
-			'style-loader', 
+			// 'style-loader', 
+			{loader: MiniCssExtractPlugin.loader},
 			{
 		    loader:'css-loader',
 		    options: {
@@ -61,7 +73,11 @@ module.exports ={
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, '../public/index.html')
-    })
-	]
+    }),
+    new MiniCssExtractPlugin({ // 压缩css
+	    filename: "[name].[contenthash].css",
+	    chunkFilename: "[id].[contenthash].chunk.css"
+		})
+	],
 
 }

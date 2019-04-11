@@ -1,18 +1,52 @@
 import React, { PureComponent } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import loadable from 'react-loadable';
 
-import App from './App'
-import Home from './pages/Home'
-import User from './pages/User'
+import Loading from 'components/Loading';
+
+/*function genLoadablePage(url){
+	console.log('aaa',url,import(url));
+	return loadable({
+		loader:()=>import(url),
+		loading:Loading,
+		timeout:10000, 
+	})
+}
+
+const App = genLoadablePage('./App')
+const Home = genLoadablePage('pages/Home')
+const User = genLoadablePage('pages/User')*/
+
+const App = loadable({
+	loader:()=>import('./App'),
+	loading:Loading,
+	timeout:10000, 
+})
+const Home = loadable({
+	loader:()=>import('pages/Home'),
+	loading:Loading,
+	timeout:10000,
+})
+const User = loadable({
+	loader:()=>import('pages/User'),
+	loading:Loading,
+	timeout:10000,
+})
+const NotFound = loadable({
+	loader:()=>import('pages/NotFound'),
+	loading:Loading,
+	timeout:10000,
+})
 
 export default class RootRouter extends PureComponent {
 	render (){
 		return (
 			<Router>
 				<Switch>
-					<Route path='/' component={App}/>
+					<Route exact path='/' component={App}/>
 					<Route path='/home' component={Home}/>
 					<Route path='/user' component={User}/>
+					<Route component={NotFound}/>
 				</Switch>
 			</Router>
 		)
