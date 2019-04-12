@@ -28,7 +28,7 @@ module.exports ={
 		vendor: ['react', 'react-dom', 'react-router-dom', /*'redux', 'react-redux'*/]
 	},
 	output: {
-		publicPath: '/',
+		publicPath:'/dist/',
 		path: publicPath,
 		filename:'[name].[hash].js',
 		//提取公共代码
@@ -68,7 +68,9 @@ module.exports ={
       pages: path.join(__dirname, '../src/pages'),
       components: path.join(__dirname, '../src/components'),
       css: path.join(__dirname, '../src/css'),
-      imgs: path.join(__dirname, '../src/imgs')
+      imgs: path.join(__dirname, '../src/imgs'),
+      api: path.join(__dirname, '../src/api'),
+      mock: path.join(__dirname, '../src/mock')
     }
 	},
 	plugins: [

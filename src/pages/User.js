@@ -14,12 +14,10 @@ export default class Page extends PureComponent {
 
   async componentDidMount(){
 		let data= await getUserInfo()
-		console.log('didm',data);
 		this.setState({data})
 	}
 
 	render (){
-		console.log('render',this.state.data)
 		const { name, intro } =this.state.data;
 		return (
 			<div>Page
