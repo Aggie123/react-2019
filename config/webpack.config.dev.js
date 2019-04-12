@@ -10,6 +10,7 @@ module.exports ={
 	mode:'development',
 	entry: {
 		app: [
+			"@babel/polyfill",
 			path.join(__dirname,'../src/index.js'),
 		],
 		//提取公共代码
@@ -66,7 +67,9 @@ module.exports ={
       pages: path.join(__dirname, '../src/pages'),
       components: path.join(__dirname, '../src/components'),
       css: path.join(__dirname, '../src/css'),
-      imgs: path.join(__dirname, '../src/imgs')
+      imgs: path.join(__dirname, '../src/imgs'),
+      api: path.join(__dirname, '../src/api'),
+      mock: path.join(__dirname, '../src/mock')
     }
 	},
 	plugins: [

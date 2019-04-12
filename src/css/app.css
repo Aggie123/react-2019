@@ -6,3 +6,8 @@
 	display: flex;
 	background-color: #f00;
 }
+
+.img-s{
+	width: 100px;
+	height: 100px;
+}
