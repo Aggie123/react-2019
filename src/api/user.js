@@ -1,12 +1,12 @@
-import request from './request.js'
+import request from './request';
 
-export async function getUserInfo(){
-	try{
-		let res=await request('/api/user');
-		console.log('api res:',res)
-		return res;
-	}catch(err){
-		console.log('api err:',err);
-	}
-	
+export default async function getUserInfo() {
+  try {
+    const res = await request('/api/user');
+    console.log('api res:', res);
+    return res;
+  } catch (err) {
+    console.log('api err:', err);
+    return null;
+  }
 }

@@ -3,6 +3,7 @@
 2. mini-css-extract-plugin 提取css文件
 3. mock mock接口测试数据
 4. axios 请求
+5. eslint 检查代码
 
 
 ##建项步骤
