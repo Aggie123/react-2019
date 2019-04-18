@@ -7,7 +7,7 @@ import 'css/app.css';
 
 export default class App extends PureComponent {
   static propTypes = {
-    children: PropTypes.Type,
+    children: PropTypes.object,
   }
 
   static defaultProps = {
@@ -21,7 +21,6 @@ export default class App extends PureComponent {
         <Link to="/user">User</Link>
         <div className="box">
 				test
-
         </div>
         {this.props.children}
       </div>

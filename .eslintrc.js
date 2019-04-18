@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: 'airbnb',
+  // extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
