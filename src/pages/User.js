@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import img1 from 'imgs/12.jpg';
-import { getUserInfo } from 'api/user.js';
+import getUserInfo from 'api/user.js';
 
 export default class Page extends PureComponent {
   constructor(props) {
@@ -21,16 +21,9 @@ export default class Page extends PureComponent {
     const { name, intro } = this.state.data;
     return (
       <div>
-Page
         <p>用户信息：</p>
-        <p>
-用户名：
-          {name}
-        </p>
-        <p>
-介绍：
-          {intro}
-        </p>
+        <p>用户名：{name}</p>
+        <p>介绍：{intro}</p>
         <img src={img1} className="img-s" />
       </div>
 
