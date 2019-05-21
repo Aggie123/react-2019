@@ -1,4 +1,5 @@
 .box2{
 	display: flex;
-	color: #ef0;
+	color: #e00;
+	background-color: '#f00'
 }

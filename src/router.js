@@ -3,19 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import loadable from 'react-loadable';
 
 import Loading from 'components/Loading';
-
-/* function genLoadablePage(url){
-	console.log('aaa',url,import(url));
-	return loadable({
-		loader:()=>import(url),
-		loading:Loading,
-		timeout:10000,
-	})
-}
-
-const App = genLoadablePage('./App')
-const Home = genLoadablePage('pages/Home')
-const User = genLoadablePage('pages/User') */
+import 'css/app.css';
 
 const App = loadable({
   loader: () => import('./App'),
@@ -27,8 +15,8 @@ const Home = loadable({
   loading: Loading,
   timeout: 10000,
 });
-const User = loadable({
-  loader: () => import('pages/User'),
+const Moments = loadable({
+  loader: () => import('pages/Moments'),
   loading: Loading,
   timeout: 10000,
 });
@@ -45,7 +33,7 @@ export default class RootRouter extends PureComponent {
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/home" component={Home} />
-          <Route path="/user" component={User} />
+          <Route path="/moments" component={Moments} />
           <Route component={NotFound} />
         </Switch>
       </Router>
@@ -59,24 +47,10 @@ export class RootRouterNested extends PureComponent {
       <Router>
         <Route component={App}>
           <Route path="user" component={User} />
-          <Route path="home" component={Home} />
+          <Route path="moments" component={Moments} />
+          <Route component={NotFound} />
         </Route>
       </Router>
     );
   }
 }
-
-/* export class RootRouterNested extends PureComponent {
-	render (){
-		console.log('RootRouterNested');
-		return (
-			<Router>
-				<Switch>
-					<Route exact path='/' component={App}>
-						<Route exact path='/user' component={User}/>
-					</Route>
-				</Switch>
-			</Router>
-		)
-	}
-} */

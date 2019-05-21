@@ -18,7 +18,7 @@ export default class App extends PureComponent {
     return (
       <div className="container">
         <Link to="/home">Home</Link>
-        <Link to="/user">User</Link>
+        <Link to="/moments">Moments</Link>
         <div className="box">
 				test
         </div>
